@@ -1,0 +1,27 @@
+<div class="col-xs-1 filter control-bank tri-row single-column text-center" ng-controller="FilterCtrl as filter">
+	<div class="row">
+		<h5>Cutoff</h5>
+		<webaudio-knob src="images/0-100-knob.png"
+			bind-polymer
+			knob-redraw
+			update-number-value
+			value="{{filter.cutoff.value}}" min="{{filter.cutoff.range[ 0 ]}}" max="{{filter.cutoff.range[ 1 ]}}" step="1" diameter="120" sprites="44" width="60" height="60"></webaudio-knob>
+	</div>
+	<div class="row">
+		<h5>Emphasis</h5>
+		<webaudio-knob src="images/0-100-knob.png"
+			bind-polymer
+			knob-redraw
+			update-number-value
+			value="{{filter.emphasis.value}}" min="{{filter.emphasis.range[ 0 ]}}" max="{{filter.emphasis.range[ 1 ]}}" step="1" diameter="120" sprites="44" width="60" height="60"></webaudio-knob>
+	</div>
+	<div class="row">
+		<h5>Simple/Env</h5>
+		<webaudio-knob src="images/0-100-knob.png"
+			bind-polymer
+			knob-redraw
+			update-number-value
+			value="{{filter.envAmount.value}}" min="{{filter.envAmount.range[ 0 ]}}" max="{{filter.envAmount.range[ 1 ]}}" step="1" diameter="120" sprites="44" width="60" height="60"></webaudio-knob>
+	</div>
+	<h4>LP Filter</h4>
+</div>

@@ -1,0 +1,73 @@
+@import "variables"
+@import "fonts"
+@import "bootstrap-override"
+@import "daw/*"
+@import "social"
+@import "maillist"
+@import "footer"
+@import "viktor-round-button"
+
+html,
+body,
+h1, h2, h3, h4, h5, h6
+	font-weight: $font-weight
+
+/* Safari renders text lighter */
+{$safari-only}
+	html,
+	body,
+	h1, h2, h3, h4, h5, h6
+		font-weight: $font-weight-safari
+
+html,
+body
+	background-color: $background-color
+
+	.form-control.ng-invalid
+		border-color: inherit
+		outline: 0
+		-webkit-box-shadow: none
+		box-shadow: none
+		&:focus
+			border-color: #a94442
+			outline: 0
+			-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075)
+			box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075)
+
+	.form-control.ng-valid
+		border-color: inherit
+		outline: 0
+		-webkit-box-shadow: none
+		box-shadow: none
+		&:focus
+			border-color: rgba(30, 192, 37, 0.66)
+			outline: 0
+			-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(63, 183, 99, 0.6)
+			box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(63, 183, 99, 0.6)
+
+.inline-block
+	display: inline-block
+
+.no-padding
+	padding: 0
+
+.noselect
+	-webkit-touch-callout: none
+	-webkit-user-select: none
+	-khtml-user-select: none
+	-moz-user-select: none
+	-ms-user-select: none
+	user-select: none
+
+.centered
+	position: fixed
+	top: 50%
+	left: 50%
+	/* bring your own prefixes */
+	transform: translate(-50%, -50%)
+
+.move-pixel-up
+	top: -1px
+
+.horizontal-divider
+	color: $panel-text-grey

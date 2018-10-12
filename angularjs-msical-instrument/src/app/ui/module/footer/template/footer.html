@@ -1,0 +1,112 @@
+<footer ng-controller="FooterCtrl as footer">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4">
+				<span class="copyright">Copyright © <a href="http://universless.com/" target="_blank">UNIVERSLESS Ltd.</a> 2015-2018
+					(<a href="https://github.com/nicroto/viktor/blob/master/LICENSE-MIT" target="_blank">MIT License</a>)</span>
+			</div>
+			<div class="col-md-4">
+				<ul class="list-inline social-links">
+					<li><a href="https://github.com/nicroto/viktor" target="_blank"><i class="fa fa-github"></i></a>
+					</li>
+					<li><a href="https://twitter.com/NikolayTsenkov" target="_blank"><i class="fa fa-twitter"></i></a>
+					</li>
+				</ul>
+			</div>
+			<div class="col-md-4">
+				<ul class="list-inline quicklinks">
+					<li>
+						<a ng-click="footer.openAboutModal()">About</a>
+					</li>
+					<li>
+						<a ng-click="footer.openPrivacyPolicyModal()">Privacy Policy</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/ng-template" id="privacyPolicyModal.html">
+		<div class="modal-header">
+			<button type="button" class="close" ng-click="footerModal.close()"><span>&times;</span></button>
+			<h4 class="modal-title">Privacy Policy</h4>
+		</div>
+		<div class="modal-body">
+			<h3>The information you provide to us</h3>
+			<p>This website, does not collect any personal information other than what is described in the next section "Tracking and cookies".</p>
+
+			<h3>Tracking and cookies</h3>
+			<p>To help us understand how we can make the website better, we use Google Analytics.</p>
+
+			<p>The data is anonymous and does not provide us with identifiable information.</p>
+
+			<h3>Facebook Likes</h3>
+			<p>Liking the NV-1 (by clicking/tapping the facebook like button) provides us with your email, profile and friends list.</p>
+
+			<hr style="width:60%">
+			<i>
+				<p>By using the website http://nicroto.github.com/vitkor/ owned by Nikolay Tsenkov, you agree to the Privacy Policy above.</p>
+
+				<p>If you have any questions about this privacy policy, please contact nikolay@tsenkov.net.</p>
+			</i>
+		</div>
+		<div class="modal-footer">
+			<div class="text-center">
+				<button type="button" class="viktor btn btn-primary"
+					ng-click="footerModal.close()">OK</button>
+			</div>
+		</div>
+	</script>
+
+	<script type="text/ng-template" id="aboutModal.html">
+		<div class="modal-header">
+			<button type="button" class="close" ng-click="footerModal.close()"><span>&times;</span></button>
+			<h4 class="modal-title">About</h4>
+		</div>
+		<div class="modal-body">
+			<h3>What is it?</h3>
+			<p>Viktor NV-1 is a software synthesizer.</p>
+			<h3>How does it work?</h3>
+			<p>It's Built on-top of the Web Audio API (WAA). The WAA is very nicely organized and easy to use. Basically it provides a variety of NodeTypes (responsible for sound generation, editing or analysis) which you combine in your liking, creating a graph through which your sound is being shaped.</p>
+			<p>Viktor produces sound in a pathway of oscillators and noise generators (as raw source of sound and timbre), envelopes (this one is a bit trickier to explain, you should research it), Low Pass filters and effects (Delay and Reverb).</p>
+			<p>This combines the 2 major ways of creating sound electronically - Additive (oscillators and noise) and Subtractive Sound Synthesis.</p>
+			<p>Viktor also makes use of the emerging Web MIDI API (just landed without a flag in Chrome 43). So you can play using your MIDI keyboard - plug it in, turn it on and restart the browser (not just the tab) and it should work.</p>
+			<h3>What browsers are supported?</h3>
+			<p>Sound-wise: Latest and gratest of Chrome, Safari and Firefox.</p>
+			<p>Mobile (iOS and Android) Chrome and Safari sound great, but there needs to be an optimized rendering, which isn't in-place, yet.</p>
+			<p>Midi: only desktop Chrome.</p>
+			<h3>Can I save my own patches/presets?</h3>
+			<p>Yes. The top row of the synth (with the green display in the middle) is called Patch Library. You can save your patches (they are not stored on the server - I use localStorage to persist your settings).</p>
+			<p>Even if you accidentally refresh the page, the settings should be intact. To backup the presets you have built - Export them (on Safari copy the text and save it to a file with extension .json, everywhere else it will let you download the file).</p>
+			<p>To get them on another computer or get someone else's library - simply use the import button.</p>
+			<h3>How do I share patches? Just files?</h3>
+			<p>You can share a full library of patches in a single file. Still, I acknowledge the fact this isn't the most convinient of ways. That's why I've added sharing patches through url! On the right-hand side of the PatchLibrary display, look for a button with the popular share icon <i class="fa fa-2x fa-share-alt"></i>.</p>
+			<h3>What technologies did you use?</h3>
+			<p>Web Audio API, Web MIDI API, Local Storage (through npm module "store"). For the effects section I used Tuna.js.</p>
+			<p>AngularJS, webaudio-controls (I am regretting this decision, since these controls are full of bugs and had to fix several of them before releasing), Bootstrap, Font Awesome, Font Orbitron and Stylus is what I used for the UI.</p>
+			<p>Instead of using Angular alone, for dependency management, I use Browserify, which provides the nice CommonJS format/style of module creation and requiring.</p>
+			<p>Angular isn't very Browserify-friendly so I had to do some stitching in my initial setup (browserify-shim, browserify-ng-html2js etc.) but once the setup was ready development really felt a breeze.</p>
+			<p>Grunt and multiple grunt-contrib-'s are used for the build (and development rebuild).</p>
+			<p>I drew the images on Pixelmator.</p>
+			<h3>So how can I get the code? It's all minified... :(</h3>
+			<p>This is only for performance/load-time reasons. Viktor is completely open-source and is licensed under the MIT license.</p>
+			<p>Fork <a target="_blank" href="https://github.com/nicroto/viktor/">the repo</a> and go NUTS! :)</p>
+			<h3>Why would you build this?</h3>
+			<p>I love Music. :)</p>
+			<p>Ever since I got into using virtual instruments, I wanted to take a peek into the world of Digital Signal Processing, but it always seemed so far off reach - I had to learn C++, get a dozen books on DSP etc.</p>
+			<p>Last year, in April, I heard about Beep.js and it caught my attention. I started experimenting, read and watched everything I could find on Synthesizers and started building what later became Viktor.</p>
+			<p>My primary source of inspiration was the Minimoog. And since I have never owned a synth, nor have I seen or played a Minimoog I got the user manuals and electronics schematics and started reading what connects to what, what are the ranges of different values and so on and here we are. :)</p>
+			<p>The NV-1 was my first project in audio and since then, I've learned C++, DSP and even successfully started my own audio company.</p>
+			<h3>So, who are you?</h3>
+			<p>My name is Nikolay Tsenkov. I am a Software Engineer and the founder of <a href="http://universless.com">UNIVERSLESS</a> - a comapany specializing in Cross-Platform Audio Software Development.</p>
+			<p>You can follow me on <a target="_blank" href="https://twitter.com/nikolaytsenkov">Twitter</a>.</p>
+			<p>If you have an interesting audio project and you need a developer to build it - <a href="http://universless.com/contact/">contact us</a>, we might be able to help.</p>
+		</div>
+		<div class="modal-footer">
+			<div class="text-center">
+				<button type="button" class="viktor btn btn-primary"
+					ng-click="footerModal.close()">OK</button>
+			</div>
+		</div>
+	</script>
+</footer>
